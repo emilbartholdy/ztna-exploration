@@ -15,6 +15,8 @@ object ZtnaServerApp extends IOApp.Simple:
   val request1 = SisoRequest(Fqdn("www.google1.com"), List(SinglePort(443)))
   val request2 = DefaultRequest(Fqdn("www.google.com"))
   
+  // This code should be moved to a Coordinator module
+
   def processRequest(request: Request)(using validator: Validator): ValidationFlowResult =
     request match
       case r: SisoRequest => validator.siso(r)
